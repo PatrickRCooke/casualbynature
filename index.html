@@ -707,7 +707,7 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-w]').forEach(el => io.observe(el));
 
 // ── STRIPE EMBEDDED CHECKOUT ──
-const stripe = Stripe('pk_live_51TFGNERWFseaSALy4wb27c6BuhF1Yls0b0xosAr20eq8vy0XTp3lUsKuwkNwASkuln3GmTojQOUlIQHgiAPSxBqJ00MY26fcUP');
+const stripe = Stripe('pk_live_51TFGN8Dsy5jUaaIi1m8LnadlKmwdT0XSKV1oSHcXNBdBxMevYwgooZGxAZzHcgnCttl2XMrJzm24KEsM0tDYSZ9C00SE8X8j84');
 let checkoutInstance = null;
 
 async function openModal(tier, price, label) {
