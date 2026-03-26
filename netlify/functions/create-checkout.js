@@ -2,19 +2,19 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const PRODUCTS = {
   personal: {
-    name: 'Patrick Cycles — Personal License',
+    name: 'Casual by Nature — Personal License',
     description: 'All 4 weights (TTF) · Personal use · Desktop & print · Unlimited personal projects',
-    amount: 1900, // $19.00 in cents
+    amount: 1900,
   },
   professional: {
-    name: 'Patrick Cycles — Professional License',
+    name: 'Casual by Nature — Professional License',
     description: 'All 4 weights (TTF) · Commercial use · Desktop, print & digital · Up to 5 seats · Web font (WOFF2)',
-    amount: 4900, // $49.00
+    amount: 4900,
   },
   brand: {
-    name: 'Patrick Cycles — Brand / Extended License',
+    name: 'Casual by Nature — Brand / Extended License',
     description: 'All 4 weights (TTF + WOFF2) · Unlimited commercial use · Unlimited seats · App & ebook · Social & broadcast',
-    amount: 12900, // $129.00
+    amount: 12900,
   },
 };
 
