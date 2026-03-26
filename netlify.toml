@@ -4,6 +4,9 @@
 [functions]
   node_bundler = "esbuild"
 
+[functions."serve-file"]
+  external_node_modules = ["fs", "path", "crypto"]
+
 [[headers]]
   for = "/*"
   [headers.values]
