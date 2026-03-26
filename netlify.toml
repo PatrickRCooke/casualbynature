@@ -3,6 +3,7 @@
 
 [functions]
   node_bundler = "esbuild"
+  included_files = ["downloads/*"]
 
 [functions."serve-file"]
   external_node_modules = ["fs", "path", "crypto"]
