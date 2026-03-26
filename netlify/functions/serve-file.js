@@ -37,11 +37,27 @@ exports.handler = async (event) => {
     }
 
     const safeFile = path.basename(file);
-    const filePath = path.resolve('/var/task/downloads', safeFile);
 
-    if (!fs.existsSync(filePath)) {
-      console.error('File not found at:', filePath);
-      return { statusCode: 404, body: 'File not found. Please contact support at hello@gilbertcooke.com' };
+    // Try multiple possible paths
+    const candidatePaths = [
+      path.resolve(process.cwd(), 'downloads', safeFile),
+      path.resolve(__dirname, '../../downloads', safeFile),
+      path.resolve(__dirname, '../../../downloads', safeFile),
+      `/var/task/downloads/${safeFile}`,
+      `/opt/build/repo/downloads/${safeFile}`,
+    ];
+
+    let filePath = null;
+    for (const candidate of candidatePaths) {
+      if (fs.existsSync(candidate)) {
+        filePath = candidate;
+        break;
+      }
+    }
+
+    if (!filePath) {
+      console.error('File not found. Tried:', candidatePaths);
+      return { statusCode: 404, body: `File not found. Please contact support at hello@gilbertcooke.com` };
     }
 
     const fileBuffer = fs.readFileSync(filePath);
