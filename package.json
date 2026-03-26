@@ -4,5 +4,6 @@
   "description": "Patrick Cycles typeface site",
   "dependencies": {
     "stripe": "^14.0.0"
+    "nodemailer": "^6.9.0"
   }
 }
