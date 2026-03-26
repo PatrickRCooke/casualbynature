@@ -1,0 +1,8 @@
+{
+  "name": "patrick-cycles",
+  "version": "1.0.0",
+  "description": "Patrick Cycles typeface site",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}

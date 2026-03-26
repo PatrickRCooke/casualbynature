@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — Casual by Nature</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1208; --paper: #f5f2ea; --cream: #ede8db;
+    --rule: #c8bfa0; --accent: #2d4a1e;
+  }
+  @font-face {
+    font-family: 'PatrickCycles';
+    font-weight: 700;
+    src: url('data:font/truetype;base64,') format('truetype');
+  }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: Georgia, serif;
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 48px 24px; text-align: center;
+  }
+  .check {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--accent); display: flex;
+    align-items: center; justify-content: center;
+    margin: 0 auto 40px; font-size: 2rem; color: white;
+  }
+  h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; margin-bottom: 16px; line-height: 1; }
+  p { font-size: 1.2rem; opacity: 0.6; max-width: 480px; line-height: 1.7; margin-bottom: 12px; }
+  .back { margin-top: 48px; display: inline-block; padding: 14px 36px; background: var(--ink); color: var(--paper); text-decoration: none; font-size: 1.1rem; }
+  .back:hover { background: var(--accent); }
+  .divider { width: 60px; height: 1px; background: var(--rule); margin: 32px auto; }
+</style>
+</head>
+<body>
+  <div class="check">✓</div>
+  <h1>You're all set.</h1>
+  <div class="divider"></div>
+  <p>Your Patrick Cycles font files are on their way to your inbox right now.</p>
+  <p>Check your email — the download link will arrive within a minute or two. Don't forget to check your spam folder.</p>
+  <p style="opacity:0.4; font-size:1rem; margin-top:24px">Questions? Reply to your receipt email.</p>
+  <a href="/" class="back">← Back to Patrick Cycles</a>
+
+  <script>
+    // Optional: you can verify the session server-side here if needed
+    const params = new URLSearchParams(window.location.search);
+    const tier = params.get('tier');
+    if (tier) {
+      const names = { personal: 'Personal', professional: 'Professional', brand: 'Brand / Extended' };
+      document.querySelector('h1').textContent = 'Thank you!';
+      document.querySelector('p').textContent =
+        `Your ${names[tier] || tier} License for Patrick Cycles is confirmed.`;
+    }
+  </script>
+</body>
+</html>
