@@ -58,8 +58,12 @@ exports.handler = async (event) => {
       ],
       mode: 'payment',
       return_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}&tier=${tier}`,
-      // Stripe sends a receipt email automatically
       customer_creation: 'always',
+      // Collect email and send receipt automatically
+      customer_email: undefined, // customer enters it in the form
+      payment_intent_data: {
+        receipt_email: null, // Stripe will use the email entered in checkout
+      },
     });
 
     return {
