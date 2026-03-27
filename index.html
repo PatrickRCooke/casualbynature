@@ -446,6 +446,42 @@ footer {
   .pricing-grid { grid-template-columns: 1fr; }
   .pangram-strip { padding: 48px 24px; }
   footer { flex-direction: column; gap: 12px; text-align: center; }
+
+  /* Fix overflow on mobile */
+  .hero-alpha {
+    font-size: clamp(1.6rem, 5vw, 3rem);
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+  }
+  .alpha-row {
+    font-size: clamp(1.4rem, 4.5vw, 2.5rem) !important;
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+  }
+  .ticker-inner {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+  }
+  .detail-grid {
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    overflow: hidden;
+  }
+  .detail-glyph {
+    font-size: clamp(2rem, 8vw, 4rem) !important;
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+  }
+  .pangram {
+    font-size: clamp(1.4rem, 4.5vw, 2.5rem) !important;
+    word-break: break-all;
+    white-space: normal;
+  }
+  .weight-sample {
+    font-size: clamp(1.8rem, 6vw, 3.5rem) !important;
+  }
 }
 
 
@@ -707,7 +743,7 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-w]').forEach(el => io.observe(el));
 
 // ── STRIPE EMBEDDED CHECKOUT ──
-const stripe = Stripe('pk_live_51TFGN8Dsy5jUaaIi1m8LnadlKmwdT0XSKV1oSHcXNBdBxMevYwgooZGxAZzHcgnCttl2XMrJzm24KEsM0tDYSZ9C00SE8X8j84');
+const stripe = Stripe('pk_test_51TFGNERWFseaSALy4wb27c6BuhF1Yls0b0xosAr20eq8vy0XTp3lUsKuwkNwASkuln3GmTojQOUlIQHgiAPSxBqJ00MY26fcUP');
 let checkoutInstance = null;
 
 async function openModal(tier, price, label) {
