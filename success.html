@@ -84,7 +84,7 @@
     }
 
     try {
-      const res = await fetch('/.netlify/functions/get-download', {
+      const res = await fetch('https://extraordinary-marigold-f9fada.netlify.app/.netlify/functions/create-checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId }),
