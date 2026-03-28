@@ -37,7 +37,7 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid license tier' }) };
   }
 
-  const origin = event.headers.origin || event.headers.referer || 'https://casualbynature.gilbertcooke.com';
+  const origin = 'https://extraordinary-marigold-f9fada.netlify.app';
 
   try {
     const session = await stripe.checkout.sessions.create({
